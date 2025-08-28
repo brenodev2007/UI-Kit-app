@@ -19,39 +19,33 @@ export default function Navbar() {
   };
 
   return (
-    <nav
-      className={` w-full transition-all duration-300  ${
-        scrolled
-          ? "bg-white/95 backdrop-blur-sm shadow-lg py-2"
-          : "bg-white/80 backdrop-blur-sm py-4"
-      }`}
-    >
+    <nav className={` w-full transition-all duration-300 p-6  ${scrolled}`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <h1 className="font-bold text-2xl text-blue-600 transition-transform duration-300 hover:scale-105 mr-5">
-          My<span className="text-blue-800">Kit</span>
+        <h1 className="font-bold text-2xl text-gray-100 transition-transform duration-300 hover:scale-105 mr-5">
+          My<span className="text-blue-500">UI</span>
         </h1>
 
         <div className="hidden md:flex gap-8">
           <a
             href="#"
-            className="text-gray-700 hover:text-blue-600 transition-colors duration-300 relative group"
+            className="text-gray-100 hover:text-blue-500 transition-colors duration-300 relative group"
           >
             Home
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gray-900 transition-all duration-300 group-hover:w-full"></span>
           </a>
           <a
             href="#"
-            className="text-gray-700 hover:text-blue-600 transition-colors duration-300 relative group"
+            className="text-gray-100 hover:text-blue-500 transition-colors duration-300 relative group"
           >
-            Sobre
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+            Components
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gray-900 transition-all duration-300 group-hover:w-full"></span>
           </a>
           <a
             href="#"
-            className="text-gray-700 hover:text-blue-600 transition-colors duration-300 relative group"
+            className="text-gray-100 hover:text-blue-500 transition-colors duration-300 relative group"
           >
-            Contato
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+            Contact
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gray-900 transition-all duration-300 group-hover:w-full"></span>
           </a>
         </div>
 

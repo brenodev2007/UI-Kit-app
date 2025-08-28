@@ -5,14 +5,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#121212", // fundo principal
-        secondary: "#1E1E1E", // fundo de cards, seções
-        text: "#E0E0E0", // texto principal
-        textSecondary: "#B3B3B3", // texto secundário
-        accent: "#BB86FC", // destaque, botões, links
-        success: "#03DAC6", // sucesso / confirmações
-        warning: "#CF6679", // alertas / erros
-        borderDark: "#2C2C2C", // bordas e separadores
+        primary: "#121212",
+        secondary: "#1E1E1E",
+        text: "#E0E0E0",
+        textSecondary: "#B3B3B3",
+        accent: "#BB86FC",
+        success: "#03DAC6",
+        warning: "#CF6679",
+        borderDark: "#2C2C2C",
       },
     },
   },
