@@ -34,30 +34,40 @@ const imageVariants: Variants = {
 const buttonVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-  hover: { scale: 1.05, boxShadow: "0px 8px 20px rgba(0,0,0,0.2)" },
   tap: { scale: 0.95 },
 };
 
+const hoverWhite = {
+  backgroundColor: "transparent",
+  color: "white",
+};
+
+const hoverTransparent = {
+  color: "black",
+  backgroundColor: "white",
+};
+
 export function Hero({
-  title = "Bem-vindo ao nosso produto",
-  subtitle = "A solução perfeita para agilizar seus processos e aumentar sua produtividade.",
-  ctaText = "Comece agora",
+  title = "Transforme sua produtividade",
+  subtitle = "Automatize processos, economize tempo e aumente seus resultados com nossa plataforma.",
+  ctaText = "Comece Agora",
   ctaSecondaryText,
   onCtaClick,
   onSecondaryClick,
   className = "",
   image,
   reverse = false,
-  badgeText,
-  bgGradient = "from-blue-600 to-blue-500",
-  textColor = "text-white",
+  badgeText = "🔥 Oferta Limitada",
+  bgGradient = "from-secondary to-primary",
+  textColor = "text-text",
 }: HeroProps) {
   return (
     <section
       className={`w-full flex flex-col md:flex-row items-center justify-between py-20 px-6 md:px-16 bg-gradient-to-r ${bgGradient} ${textColor} ${className} ${
         reverse ? "md:flex-row-reverse" : ""
-      }`}
+      } relative`}
     >
+      {/* Texto */}
       <motion.div
         className="flex-1 mb-10 md:mb-0"
         variants={containerVariants}
@@ -66,32 +76,34 @@ export function Hero({
       >
         {badgeText && (
           <motion.div
-            className="inline-block mb-4 px-3 py-1 bg-white text-blue-600 font-semibold rounded-full text-sm"
+            className="inline-block mb-4 px-3 py-1 bg-transparent text-white border-2 border-purple-200 font-semibold rounded-full text-sm animate-pulse"
             variants={textVariants}
           >
             {badgeText}
           </motion.div>
         )}
         <motion.h1
-          className="text-4xl md:text-5xl font-bold mb-4 leading-tight"
+          className="text-4xl md:text-5xl font-bold mb-4 leading-tight text-blue-500"
           variants={textVariants}
         >
           {title}
         </motion.h1>
         <motion.p
-          className="text-lg md:text-xl mb-6 opacity-90"
+          className="text-lg md:text-xl mb-6 opacity-90 text-white"
           variants={textVariants}
         >
           {subtitle}
         </motion.p>
+
+        {/* Botões */}
         <div className="flex flex-wrap gap-4">
           {ctaText && onCtaClick && (
             <motion.button
               onClick={onCtaClick}
               variants={buttonVariants}
-              whileHover="hover"
+              whileHover={hoverTransparent}
               whileTap="tap"
-              className="bg-white text-blue-600 font-semibold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-transparent text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-500"
             >
               {ctaText}
             </motion.button>
@@ -100,16 +112,36 @@ export function Hero({
             <motion.button
               onClick={onSecondaryClick}
               variants={buttonVariants}
-              whileHover="hover"
+              whileHover={hoverWhite}
               whileTap="tap"
-              className="bg-transparent border border-white text-white font-semibold py-3 px-6 rounded-lg hover:bg-white hover:text-blue-600 transition-all duration-300"
+              className="bg-white text-accent font-semibold py-3 px-6 rounded-lg transition-all duration-500"
             >
               {ctaSecondaryText}
             </motion.button>
           )}
         </div>
+
+        {/* Benefícios rápidos */}
+        <div className="flex justify-start gap-8 mt-10 flex-wrap">
+          <div className="flex flex-col items-center gap-2">
+            <p className="text-white text-sm text-center hover:text-blue-500 cursor-pointer transition-colors duration-300 relative group">
+              Fast and efficient
+            </p>
+          </div>
+          <div className="flex flex-col items-center gap-2">
+            <p className="text-white text-sm text-center hover:text-blue-500 cursor-pointer transition-colors duration-300 relative group">
+              100% Safe
+            </p>
+          </div>
+          <div className="flex flex-col items-center gap-2">
+            <p className="text-white text-sm text-center hover:text-blue-500 cursor-pointer transition-colors duration-300 relative group ">
+              Support 24/7
+            </p>
+          </div>
+        </div>
       </motion.div>
 
+      {/* Imagem */}
       {image && (
         <motion.div
           className="flex-1"
@@ -117,7 +149,7 @@ export function Hero({
           variants={imageVariants}
           initial="hidden"
           animate="visible"
-          whileHover={{ scale: 1.02 }}
+          whileHover={{ scale: 1.05 }}
         >
           {image}
         </motion.div>

@@ -16,20 +16,18 @@ export default function Home() {
 
       <div className="container mx-auto px-4 py-20">
         <Hero
-          title="Welcome to MyUI"
-          subtitle="Your ultimate UI component library for React."
-          ctaText="Get Started"
+          title="Transform your productivity"
+          subtitle="Automate processes, save time, and increase your results with our platform."
+          ctaText="Start Now"
           onCtaClick={handlePrimaryClick}
-          ctaSecondaryText="Learn More"
+          ctaSecondaryText="View Demo"
           onSecondaryClick={handleSecondaryClick}
-          badgeText="New"
+          badgeText=" Limited Offer"
           image={
             <img
-              src={
-                "https://via.placeholder.com/400x300.png?text=Imagem+de+Exemplo"
-              }
-              alt="Exemplo"
-              className="rounded-lg "
+              src={"/hero-image.png"}
+              alt="Produto"
+              className="rounded-xl shadow-2xl hover:scale-105 transition-transform duration-500"
             />
           }
           bgGradient="from-secondary to-primary"
