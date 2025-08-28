@@ -144,12 +144,12 @@ export function Hero({
       {/* Imagem */}
       {image && (
         <motion.div
-          className="flex-1"
+          className="flex-1 mr-2"
           custom={reverse}
           variants={imageVariants}
           initial="hidden"
           animate="visible"
-          whileHover={{ scale: 1.05 }}
+          whileHover={{ scale: 1.02 }}
         >
           {image}
         </motion.div>

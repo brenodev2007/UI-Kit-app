@@ -1,5 +1,6 @@
 import { Hero } from "../components/Hero";
 import Navbar from "../components/Navbar";
+import teste from "../assets/teste.jpg";
 
 export default function Home() {
   const handlePrimaryClick = () => {
@@ -25,7 +26,7 @@ export default function Home() {
           badgeText=" Limited Offer"
           image={
             <img
-              src={"/hero-image.png"}
+              src={teste}
               alt="Produto"
               className="rounded-xl shadow-2xl hover:scale-105 transition-transform duration-500"
             />
