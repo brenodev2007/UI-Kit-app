@@ -3,6 +3,7 @@ import Button from "../components/button/Button";
 import ButtonIcon from "../components/button/ButtonIcon";
 import { FaCoffee, FaCheck, FaTrash, FaCopy } from "react-icons/fa";
 import { useState, type JSX } from "react";
+import Navbar from "../components/Navbar";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -90,6 +91,9 @@ export default function ButtonsPage() {
       animate="visible"
     >
       {/* Intro */}
+      <div className="w-full mb-30">
+        <Navbar />
+      </div>
       <h1 className="text-4xl md:text-5xl font-extrabold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
         Buttons Showcase
       </h1>
