@@ -1,6 +1,6 @@
 import { Hero } from "../components/Hero";
 import Navbar from "../components/Navbar";
-import teste from "../assets/teste.jpg";
+import teste from "../assets/operating-system-upgrade-animate.svg";
 
 export default function Home() {
   const handlePrimaryClick = () => {
@@ -15,7 +15,7 @@ export default function Home() {
     <div className="min-h-screen bg-gray-900">
       <Navbar />
 
-      <div className="container mx-auto px-4 py-20">
+      <div className="container mx-auto px-4 py-25">
         <Hero
           title="Transform your productivity"
           subtitle="Automate processes, save time, and increase your results with our platform."
@@ -28,13 +28,15 @@ export default function Home() {
             <img
               src={teste}
               alt="Produto"
-              className="rounded-xl shadow-2xl hover:scale-105 transition-transform duration-500"
+              className="rounded-lg hover:scale-102 transition-transform duration-500 w-xl m-auto"
             />
           }
           bgGradient="from-secondary to-primary"
           textColor="text-text"
         />
       </div>
+
+      <div className="container mx-auto  px-4 py-30"></div>
     </div>
   );
 }

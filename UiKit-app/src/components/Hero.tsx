@@ -57,7 +57,7 @@ export function Hero({
   className = "",
   image,
   reverse = false,
-  badgeText = "🔥 Oferta Limitada",
+  badgeText = "Oferta Limitada",
   bgGradient = "from-secondary to-primary",
   textColor = "text-text",
 }: HeroProps) {
@@ -144,12 +144,12 @@ export function Hero({
       {/* Imagem */}
       {image && (
         <motion.div
-          className="flex-1 mr-2"
+          className="flex-1 mr-4"
           custom={reverse}
           variants={imageVariants}
           initial="hidden"
           animate="visible"
-          whileHover={{ scale: 1.02 }}
+          whileHover={{ scale: 1.01 }}
         >
           {image}
         </motion.div>
