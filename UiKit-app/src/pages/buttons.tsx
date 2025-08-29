@@ -56,10 +56,10 @@ export default function ButtonsPage() {
 
   const renderCodeCard = (buttonElement: JSX.Element, codeText: string) => (
     <motion.div
-      className="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col items-center gap-4 cursor-pointer relative"
+      className="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col items-center gap-4 cursor-pointer relative min-h-[120px]"
       variants={cardVariants}
       initial="hidden"
-      whileInView="visible"
+      animate="visible"
       whileHover="hover"
     >
       {buttonElement}
@@ -90,10 +90,12 @@ export default function ButtonsPage() {
       initial="hidden"
       animate="visible"
     >
-      {/* Intro */}
+      {/* Navbar */}
       <div className="w-full mb-30">
         <Navbar />
       </div>
+
+      {/* Intro */}
       <h1 className="text-4xl md:text-5xl font-extrabold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
         Buttons Showcase
       </h1>
@@ -163,7 +165,7 @@ export default function ButtonsPage() {
         </div>
       </section>
 
-      {/* ButtonIcon */}
+      {/* Button with Icon */}
       <section className="w-full max-w-6xl mb-16">
         <h2 className="text-2xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
           Button with Icon
