@@ -1,12 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/home";
+import ButtonsPage from "./pages/buttons";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* Aqui você pode adicionar outras rotas depois */}
+        <Route path="/button" element={<ButtonsPage />} />
       </Routes>
     </Router>
   );
