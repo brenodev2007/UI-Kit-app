@@ -1,6 +1,7 @@
 import { Hero } from "../components/Hero";
 import Navbar from "../components/Navbar";
 import teste from "../assets/operating-system-upgrade-animate.svg";
+import AboutSection from "../components/About";
 
 export default function Home() {
   const handlePrimaryClick = () => {
@@ -36,7 +37,9 @@ export default function Home() {
         />
       </div>
 
-      <div className="container mx-auto  px-4 py-30"></div>
+      <div className="container mx-auto  px-4 py-30">
+        <AboutSection />
+      </div>
     </div>
   );
 }

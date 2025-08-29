@@ -43,7 +43,7 @@ const hoverWhite = {
 };
 
 const hoverTransparent = {
-  color: "black",
+  color: "#1e40af", // blue-800
   backgroundColor: "white",
 };
 
@@ -58,8 +58,8 @@ export function Hero({
   image,
   reverse = false,
   badgeText = "Oferta Limitada",
-  bgGradient = "from-secondary to-primary",
-  textColor = "text-text",
+  bgGradient = "from-blue-800 to-blue-700",
+  textColor = "text-white",
 }: HeroProps) {
   return (
     <section
@@ -76,34 +76,34 @@ export function Hero({
       >
         {badgeText && (
           <motion.div
-            className="inline-block mb-4 px-3 py-1 bg-transparent text-white border-2 border-purple-200 font-semibold rounded-full text-sm animate-pulse"
+            className="inline-block mb-4 px-4 py-1 bg-blue-900 bg-opacity-30 text-white font-semibold rounded-full text-sm animate-pulse"
             variants={textVariants}
           >
             {badgeText}
           </motion.div>
         )}
         <motion.h1
-          className="text-4xl md:text-5xl font-bold mb-4 leading-tight text-blue-500"
+          className="text-5xl font-extrabold mb-4 leading-tight text-white"
           variants={textVariants}
         >
           {title}
         </motion.h1>
         <motion.p
-          className="text-lg md:text-xl mb-6 opacity-90 text-white"
+          className="text-xl mb-8 opacity-90 text-blue-200"
           variants={textVariants}
         >
           {subtitle}
         </motion.p>
 
         {/* Botões */}
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-5">
           {ctaText && onCtaClick && (
             <motion.button
               onClick={onCtaClick}
               variants={buttonVariants}
               whileHover={hoverTransparent}
               whileTap="tap"
-              className="bg-transparent text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-500"
+              className="bg-transparent text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all duration-500"
             >
               {ctaText}
             </motion.button>
@@ -114,7 +114,7 @@ export function Hero({
               variants={buttonVariants}
               whileHover={hoverWhite}
               whileTap="tap"
-              className="bg-white text-accent font-semibold py-3 px-6 rounded-lg transition-all duration-500"
+              className="bg-white text-blue-700 font-semibold py-3 px-8 rounded-lg transition-all duration-500"
             >
               {ctaSecondaryText}
             </motion.button>
@@ -122,34 +122,28 @@ export function Hero({
         </div>
 
         {/* Benefícios rápidos */}
-        <div className="flex justify-start gap-8 mt-10 flex-wrap">
-          <div className="flex flex-col items-center gap-2">
-            <p className="text-white text-sm text-center hover:text-blue-500 cursor-pointer transition-colors duration-300 relative group">
-              Fast and efficient
-            </p>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <p className="text-white text-sm text-center hover:text-blue-500 cursor-pointer transition-colors duration-300 relative group">
-              100% Safe
-            </p>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <p className="text-white text-sm text-center hover:text-blue-500 cursor-pointer transition-colors duration-300 relative group ">
-              Support 24/7
-            </p>
-          </div>
+        <div className="flex justify-start gap-10 mt-12 flex-wrap">
+          {["Fast and efficient", "100% Safe", "Support 24/7"].map(
+            (benefit, i) => (
+              <div key={i} className="flex flex-col items-center gap-2">
+                <p className="text-blue-200 text-sm text-center hover:text-white cursor-pointer transition-colors duration-300 relative group">
+                  {benefit}
+                </p>
+              </div>
+            )
+          )}
         </div>
       </motion.div>
 
       {/* Imagem */}
       {image && (
         <motion.div
-          className="flex-1 mr-4"
+          className="flex-1 ml-4"
           custom={reverse}
           variants={imageVariants}
           initial="hidden"
           animate="visible"
-          whileHover={{ scale: 1.01 }}
+          whileHover={{ scale: 1.02 }}
         >
           {image}
         </motion.div>
