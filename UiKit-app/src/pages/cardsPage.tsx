@@ -1,4 +1,5 @@
 import { motion, type Variants } from "framer-motion";
+import example from "../assets/cascata-barco-limpo-china-natural-rural.jpg";
 import Navbar from "../components/Navbar";
 import Card, {
   CardHeader,
@@ -9,25 +10,28 @@ import Card, {
   CardImage,
   CardAvatar,
 } from "../components/cards/Cards";
-import { useState, type JSX } from "react";
-import { FaHeart, FaShare, FaStar } from "react-icons/fa";
+import { useEffect, useState, type JSX } from "react";
+import { FaHeart, FaShare, FaStar, FaRegCopy } from "react-icons/fa";
 
 const containerVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { staggerChildren: 0.1, duration: 0.8 },
-  },
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1 } },
 };
 
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  hover: { scale: 1.03, transition: { type: "spring", stiffness: 300 } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  hover: {
+    scale: 1.02,
+    transition: { type: "spring", stiffness: 250, damping: 20 },
+  },
 };
 
 export default function CardsPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [copied, setCopied] = useState<string | null>(null);
 
   const handleCopy = (text: string) => {
@@ -52,12 +56,13 @@ export default function CardsPage() {
         <button
           onClick={() => handleCopy(codeText)}
           className="absolute top-2 right-2 text-blue-400 hover:text-blue-200 transition-transform hover:scale-110"
+          title="Copy code"
         >
-          Copy
+          <FaRegCopy />
         </button>
         {copied === codeText && (
-          <span className="absolute top-2 right-16 text-green-400 font-semibold text-sm">
-            Copiado!
+          <span className="absolute top-2 right-10 text-green-400 font-semibold text-sm">
+            Copied!
           </span>
         )}
       </div>
@@ -70,27 +75,40 @@ export default function CardsPage() {
   const hoverEffects = ["none", "scale", "shadow", "lift"] as const;
 
   return (
-    <motion.section
-      className="w-full min-h-screen p-10 flex flex-col items-center bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white"
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-    >
+    <section className="w-full min-h-screen p-10 flex flex-col items-center bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white">
       <div className="w-full mb-12">
         <Navbar />
       </div>
 
-      <h1 className="text-4xl md:text-5xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">
+      <motion.h1
+        className="text-4xl md:text-5xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0, transition: { duration: 0.8 } }}
+      >
         Cards Showcase
-      </h1>
-      <p className="text-blue-300 text-lg mb-12 max-w-3xl text-center">
-        Veja todos os tipos de card organizados por seções: estilos,
-        arredondamentos, tamanhos, efeitos e conteúdo.
-      </p>
+      </motion.h1>
 
-      {/* Estilos de Card */}
-      <section className="w-full max-w-6xl mb-16">
-        <h2 className="text-2xl font-bold mb-6">Estilos de Card</h2>
+      <motion.p
+        className="text-blue-300 text-lg mb-12 max-w-3xl text-center"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{
+          opacity: 1,
+          y: 0,
+          transition: { duration: 0.8, delay: 0.2 },
+        }}
+      >
+        Explore all types of cards organized by sections: styles, rounding,
+        sizes, hover effects, and content.
+      </motion.p>
+
+      {/* Card Styles */}
+      <motion.section
+        className="w-full max-w-6xl mb-16"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <h2 className="text-2xl font-bold mb-6">Card Styles</h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
           {variants.map((v) =>
             renderCardCode(
@@ -98,13 +116,14 @@ export default function CardsPage() {
                 <CardHeader>
                   <CardTitle>{v} Card</CardTitle>
                   <CardDescription>
-                    Card do tipo <b>{v}</b> com imagem e botões interativos.
+                    A <b>{v}</b> card with image and interactive buttons.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <CardImage
-                    src="https://via.placeholder.com/400x200"
-                    alt="Exemplo"
+                    src={example}
+                    alt="Example"
+                    className="min-h-[200px]"
                   />
                 </CardContent>
                 <CardFooter align="between">
@@ -123,25 +142,31 @@ export default function CardsPage() {
             )
           )}
         </div>
-      </section>
+      </motion.section>
 
-      {/* Arredondamentos */}
-      <section className="w-full max-w-6xl mb-16">
-        <h2 className="text-2xl font-bold mb-6">Arredondamentos</h2>
+      {/* Card Rounding */}
+      <motion.section
+        className="w-full max-w-6xl mb-16"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <h2 className="text-2xl font-bold mb-6">Rounding</h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
           {roundeds.map((r) =>
             renderCardCode(
               <Card variant="elevated" rounded={r} hoverEffect="lift">
                 <CardHeader>
-                  <CardTitle>Arredondamento {r}</CardTitle>
+                  <CardTitle>Rounded {r}</CardTitle>
                   <CardDescription>
-                    Borda arredondada {r} com efeito lift.
+                    Rounded border {r} with lift effect.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <CardImage
-                    src="https://via.placeholder.com/400x200"
-                    alt="Exemplo"
+                    src={example}
+                    alt="Example"
+                    className="min-h-[200px]"
                   />
                 </CardContent>
               </Card>,
@@ -149,51 +174,63 @@ export default function CardsPage() {
             )
           )}
         </div>
-      </section>
+      </motion.section>
 
-      {/* Tamanhos */}
-      <section className="w-full max-w-6xl mb-16">
-        <h2 className="text-2xl font-bold mb-6">Tamanhos de Card</h2>
-        <div className="flex flex-wrap gap-6 justify-center">
-          {sizes.map((s) =>
-            renderCardCode(
-              <Card variant="elevated" size={s} rounded="lg" hoverEffect="lift">
-                <CardHeader>
-                  <CardTitle>Tamanho {s}</CardTitle>
-                  <CardDescription>
-                    Card com padding correspondente a {s}.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <CardImage
-                    src="https://via.placeholder.com/400x200"
-                    alt="Exemplo"
-                  />
-                </CardContent>
-              </Card>,
-              `<Card variant="elevated" size="${s}" rounded="lg" hoverEffect="lift">...</Card>`
-            )
-          )}
-        </div>
-      </section>
+      {/* Card Sizes */}
+      <motion.section
+        className="w-full max-w-6xl mb-16 flex flex-wrap gap-6 justify-center"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <h2 className="text-2xl font-bold mb-6 w-full">Card Sizes</h2>
+        {sizes.map((s) =>
+          renderCardCode(
+            <Card variant="elevated" size={s} rounded="lg" hoverEffect="lift">
+              <CardHeader>
+                <CardTitle>Size {s}</CardTitle>
+                <CardDescription>
+                  Card with padding corresponding to {s}.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <CardImage
+                  src={example}
+                  alt="Example"
+                  className="min-h-[200px]"
+                />
+              </CardContent>
+            </Card>,
+            `<Card variant="elevated" size="${s}" rounded="lg" hoverEffect="lift">...</Card>`
+          )
+        )}
+      </motion.section>
 
       {/* Hover Effects */}
-      <section className="w-full max-w-6xl mb-16">
+      <motion.section
+        className="w-full max-w-6xl mb-16"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         <h2 className="text-2xl font-bold mb-6">Hover Effects</h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
           {hoverEffects.map((h) =>
             renderCardCode(
               <Card variant="elevated" rounded="lg" hoverEffect={h}>
                 <CardHeader>
-                  <CardTitle>Efeito {h}</CardTitle>
+                  <CardTitle>
+                    {h.charAt(0).toUpperCase() + h.slice(1)} Effect
+                  </CardTitle>
                   <CardDescription>
-                    Interação suave com efeito <b>{h}</b>.
+                    Smooth interaction with <b>{h}</b> hover effect.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <CardImage
-                    src="https://via.placeholder.com/400x200"
-                    alt="Exemplo"
+                    src={example}
+                    alt="Example"
+                    className="min-h-[200px]"
                   />
                 </CardContent>
               </Card>,
@@ -201,21 +238,22 @@ export default function CardsPage() {
             )
           )}
         </div>
-      </section>
+      </motion.section>
 
-      {/* Avatar e Métricas */}
-      <section className="w-full max-w-6xl mb-16">
-        <h2 className="text-2xl font-bold mb-6">Card com Avatar e Métricas</h2>
+      {/* Avatar & Metrics */}
+      <motion.section
+        className="w-full max-w-6xl mb-16"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <h2 className="text-2xl font-bold mb-6">Card with Avatar & Metrics</h2>
         {renderCardCode(
           <Card variant="filled" rounded="xl" hoverEffect="scale">
             <CardHeader className="flex flex-col items-center">
-              <CardAvatar
-                src="https://via.placeholder.com/150"
-                alt="Avatar"
-                size="lg"
-              />
+              <CardAvatar src={example} alt="Avatar" size="lg" />
               <CardTitle className="mt-2">Jane Doe</CardTitle>
-              <CardDescription>Métricas e interação do usuário</CardDescription>
+              <CardDescription>User metrics and interactions</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="flex justify-between mt-4 w-full">
@@ -236,7 +274,7 @@ export default function CardsPage() {
           </Card>,
           `<Card variant="filled" rounded="xl" hoverEffect="scale">...</Card>`
         )}
-      </section>
-    </motion.section>
+      </motion.section>
+    </section>
   );
 }
