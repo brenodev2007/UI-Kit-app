@@ -2,7 +2,7 @@ import { Hero } from "../components/Hero";
 import Navbar from "../components/Navbar";
 import teste from "../assets/operating-system-upgrade-animate.svg";
 import AboutSection from "../components/About";
-
+import ComponentShowcase, { showcaseItems } from "../components/ShowCase";
 export default function Home() {
   const handlePrimaryClick = () => {
     alert("Você clicou no botão principal!");
@@ -37,8 +37,12 @@ export default function Home() {
         />
       </div>
 
-      <div className="container mx-auto  px-4 py-30">
+      <div className="container mx-auto  px-4 py-10">
         <AboutSection />
+      </div>
+
+      <div className="container mx-auto px-4 py-10">
+        <ComponentShowcase components={showcaseItems} />
       </div>
     </div>
   );
