@@ -8,7 +8,8 @@ import {
   MessageSquare, // Feedbacks
   Nut, // Input
   ListTree, // List
-  Navigation, // Navbar
+  Navigation,
+  MousePointerClick, // Navbar
 } from "lucide-react";
 
 export interface ShowcaseItem {
@@ -52,6 +53,13 @@ export const showcaseItems: ShowcaseItem[] = [
     description: "Elegant cards to highlight information.",
     icon: <SquareStack className="text-purple-400" />,
     link: "/cards",
+  },
+  {
+    id: "buttons",
+    title: "Buttons",
+    description: "Versatile buttons for various actions.",
+    icon: <MousePointerClick className="text-red-400" />,
+    link: "/button",
   },
   {
     id: "extras",
