@@ -1,15 +1,15 @@
 import React from "react";
 import { motion, easeOut, type Variants } from "framer-motion";
 import { Link } from "react-router-dom";
+
 import {
-  FaRegSquare,
-  FaLayerGroup,
-  FaStar,
-  FaCommentDots,
-  FaKeyboard,
-  FaListUl,
-  FaBars,
-} from "react-icons/fa";
+  SquareStack, // Cards
+  Puzzle, // Extras
+  MessageSquare, // Feedbacks
+  Nut, // Input
+  ListTree, // List
+  Navigation, // Navbar
+} from "lucide-react";
 
 export interface ShowcaseItem {
   id: string;
@@ -47,52 +47,45 @@ const cardVariants: Variants = {
 
 export const showcaseItems: ShowcaseItem[] = [
   {
-    id: "button",
-    title: "Button",
-    description: "Modern and accessible buttons for quick actions.",
-    icon: <FaRegSquare className="text-cyan-400" />,
-    link: "/button",
-  },
-  {
     id: "cards",
     title: "Cards",
     description: "Elegant cards to highlight information.",
-    icon: <FaLayerGroup className="text-purple-400" />,
+    icon: <SquareStack className="text-purple-400" />,
     link: "/cards",
   },
   {
     id: "extras",
     title: "Extras",
     description: "Utility components to enrich your interface.",
-    icon: <FaStar className="text-yellow-400" />,
+    icon: <Puzzle className="text-yellow-400" />,
     link: "/extras",
   },
   {
     id: "feedbacks",
     title: "Feedbacks",
     description: "Alerts, toasts and messages to the user.",
-    icon: <FaCommentDots className="text-pink-400" />,
+    icon: <MessageSquare className="text-pink-400" />,
     link: "/feedbacks",
   },
   {
     id: "input",
     title: "Input",
     description: "Intuitive and responsive input fields.",
-    icon: <FaKeyboard className="text-green-400" />,
+    icon: <Nut className="text-green-400" />,
     link: "/input",
   },
   {
     id: "list",
     title: "List",
     description: "Dynamic and organized lists.",
-    icon: <FaListUl className="text-orange-400" />,
+    icon: <ListTree className="text-orange-400" />,
     link: "/list",
   },
   {
     id: "navbar",
     title: "Navbar Templates",
     description: "Modern and responsive navigation templates.",
-    icon: <FaBars className="text-blue-400" />,
+    icon: <Navigation className="text-blue-400" />,
     link: "/navbar",
   },
 ];
