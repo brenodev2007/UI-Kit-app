@@ -18,6 +18,7 @@ interface FormModalProps {
   fields?: Field[];
   submitLabel?: string;
   cancelLabel?: string;
+  size: string;
 }
 
 export default function FormModal({
