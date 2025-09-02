@@ -23,11 +23,13 @@ export default function Navbar() {
     <nav
       className={`w-full transition-all duration-300 p-6 fixed z-50 ${scrolled}`}
     >
-      <div className="container mx-auto px-4 flex justify-between items-center">
+      <div className="container mx-auto px-5 flex justify-between items-center">
         {/* Logo */}
-        <h1 className="font-bold text-2xl text-gray-100 transition-transform duration-300 hover:scale-105 mr-5">
-          My<span className="text-blue-500">UI</span>
-        </h1>
+        <Link to="/">
+          <h1 className="font-bold text-2xl text-gray-100 transition-transform duration-300 hover:scale-105 mr-5">
+            My<span className="text-blue-500">UI</span>
+          </h1>
+        </Link>
 
         {/* Menu Desktop */}
         <div className="hidden md:flex gap-8">
