@@ -166,7 +166,7 @@ export default function ComponentShowcase({
                 to={link}
                 className="inline-block bg-black hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg shadow transition-colors duration-300"
               >
-                Ver {title}
+                View {title}
               </Link>
             </div>
           </motion.div>

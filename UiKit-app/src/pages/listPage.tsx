@@ -107,7 +107,7 @@ export default function ListComponentsPage() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0, transition: { duration: 0.8 } }}
       >
-        Componentes de Lista
+        List components
       </motion.h1>
       <motion.p
         className="text-purple-300 text-base md:text-lg mb-8 md:mb-12 max-w-3xl text-center"
@@ -118,10 +118,9 @@ export default function ListComponentsPage() {
           transition: { duration: 0.8, delay: 0.2 },
         }}
       >
-        Explore todos os estilos de tabelas e listas para organizar e exibir
-        dados.
+        Explore all the table and list styles to organize and display data.
         <br />
-        Copie o código abaixo de cada exemplo para usar em seus projetos! 🚀
+        Copy the code below each example to use in your projects! 🚀
       </motion.p>
 
       {/* Tabs de Navegação */}
@@ -131,8 +130,8 @@ export default function ListComponentsPage() {
         animate={{ opacity: 1, transition: { delay: 0.3 } }}
       >
         {[
-          { id: "tables", label: "Tabelas", icon: <FaTable /> },
-          { id: "lists", label: "Listas", icon: <FaList /> },
+          { id: "tables", label: "Tables", icon: <FaTable /> },
+          { id: "lists", label: "Lists", icon: <FaList /> },
         ].map((tab) => (
           <button
             key={tab.id}
@@ -162,7 +161,7 @@ export default function ListComponentsPage() {
           {/* Tabela Básica */}
           <div className="mb-10">
             <h3 className="text-lg font-semibold mb-4 text-gray-500">
-              Tabela Básica
+              Basic Table
             </h3>
             {renderCodeCard(
               <div className="overflow-hidden rounded-lg shadow-md ">
@@ -185,7 +184,7 @@ export default function ListComponentsPage() {
           {/* Tabela com Paginação */}
           <div className="mb-10">
             <h3 className="text-lg font-semibold mb-4 text-gray-500">
-              Tabela com Paginação
+              Table with Pagination
             </h3>
             {renderCodeCard(
               <div className="overflow-hidden rounded-lg shadow-md">
@@ -208,7 +207,7 @@ export default function ListComponentsPage() {
           {/* Tabela com Tema Escuro */}
           <div className="mb-10">
             <h3 className="text-lg font-semibold mb-4 text-gray-300">
-              Tabela com Tema Escuro
+              Table with Dark theme
             </h3>
             {renderCodeCard(
               <div className="overflow-hidden rounded-lg shadow-md">
@@ -230,7 +229,7 @@ export default function ListComponentsPage() {
           {/* Tabela Elegante */}
           <div>
             <h3 className="text-lg font-semibold mb-4 text-gray-300">
-              Tabela Elegante
+              Elegant Table
             </h3>
             {renderCodeCard(
               <div className="overflow-hidden rounded-lg shadow-md">
@@ -259,12 +258,12 @@ export default function ListComponentsPage() {
           initial="hidden"
           animate="visible"
         >
-          <h2 className="text-2xl font-bold mb-6 text-indigo-400">Listas</h2>
+          <h2 className="text-2xl font-bold mb-6 text-indigo-400">Lists</h2>
 
           {/* Lista Simples */}
           <div className="mb-10">
             <h3 className="text-lg font-semibold mb-4 text-gray-300">
-              Lista Simples
+              Simple List
             </h3>
             {renderCodeCard(
               <div className="p-4 bg-gray-900 rounded-lg">
@@ -283,7 +282,7 @@ export default function ListComponentsPage() {
           {/* Lista Numerada */}
           <div className="mb-10">
             <h3 className="text-lg font-semibold mb-4 text-gray-300">
-              Lista Numerada
+              Numbered List
             </h3>
             {renderCodeCard(
               <div className="p-4 bg-gray-900 rounded-lg">
@@ -302,7 +301,7 @@ export default function ListComponentsPage() {
           {/* Lista com Ícones */}
           <div className="mb-10">
             <h3 className="text-lg font-semibold mb-4 text-gray-300">
-              Lista com Ícones
+              List with Icons
             </h3>
             {renderCodeCard(
               <div className="p-4 bg-gray-900 rounded-lg">
@@ -323,7 +322,7 @@ export default function ListComponentsPage() {
           {/* Lista com Ícones Coloridos */}
           <div>
             <h3 className="text-lg font-semibold mb-4 text-gray-300">
-              Lista com Ícones Coloridos
+              List with color icons
             </h3>
             {renderCodeCard(
               <div className="p-4 bg-gray-900 rounded-lg">
@@ -359,12 +358,11 @@ export default function ListComponentsPage() {
         }}
       >
         <h2 className="text-xl font-semibold mb-4 text-indigo-400">
-          Como usar os componentes de Lista
+          How to use List components
         </h2>
         <p className="text-gray-300 mb-4">
-          Os componentes de lista incluem tabelas e listas altamente
-          personalizáveis. Eles são projetados para organizar e exibir dados de
-          forma clara e eficiente.
+          List components include highly customizable tables and lists. They are
+          designed to organize and display data clearly and efficiently.
         </p>
         <div className="bg-gray-900 rounded-lg p-4 overflow-x-auto">
           <code className="text-sm text-indigo-300">
