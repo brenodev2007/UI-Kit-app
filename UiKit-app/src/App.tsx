@@ -4,6 +4,7 @@ import ButtonsPage from "./pages/buttonsPage";
 import CardsPage from "./pages/cardsPage";
 import ExtrasPage from "./pages/extrasPage";
 import FeedbackPage from "./pages/feedbackPage";
+import InputComponentsShowcase from "./pages/inputPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/cards" element={<CardsPage />} />
         <Route path="/extras" element={<ExtrasPage />} />
         <Route path="/feedbacks" element={<FeedbackPage />} />
+        <Route path="/input" element={<InputComponentsShowcase />} />
       </Routes>
     </Router>
   );
