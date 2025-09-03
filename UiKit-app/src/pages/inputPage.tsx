@@ -125,7 +125,7 @@ export default function InputComponentsShowcase() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0, transition: { duration: 0.8 } }}
       >
-        Componentes de Input
+        Input components
       </motion.h1>
 
       <motion.p
@@ -137,8 +137,8 @@ export default function InputComponentsShowcase() {
           transition: { duration: 0.8, delay: 0.2 },
         }}
       >
-        Explore e personalize todos os componentes de input em tempo real e
-        copie o código para usar em seus projetos!
+        Explore and customize all input components in real time and copy the
+        code to use in your projects!
       </motion.p>
 
       {/* Component Grid */}
@@ -203,16 +203,16 @@ export default function InputComponentsShowcase() {
             <RadioGroup
               value={radioValue}
               onChange={setRadioValue}
-              label="Selecione uma opção"
+              label="Selecione uma option"
             >
               <Radio value="option1" variant="primary">
-                Opção 1
+                Option 1
               </Radio>
               <Radio value="option2" variant="primary">
-                Opção 2
+                Option 2
               </Radio>
               <Radio value="option3" variant="primary">
-                Opção 3
+                Option 3
               </Radio>
               <Radio value="option4" variant="primary" disabled>
                 Opção desabilitada
@@ -401,12 +401,12 @@ export default function InputComponentsShowcase() {
         }}
       >
         <h2 className="text-xl font-semibold mb-4 text-cyan-400">
-          Como usar os componentes
+          How to use the components
         </h2>
         <p className="text-gray-300 mb-4">
-          Todos os componentes são altamente personalizáveis e seguem as
-          melhores práticas de acessibilidade. Basta copiar o código do
-          componente desejado e importá-lo em seu projeto.
+          All components are highly customizable and follow accessibility best
+          practices. Simply copy the code for the desired component and import
+          it into your project.
         </p>
         <div className="bg-gray-900 rounded-lg p-4 overflow-x-auto">
           <code className="text-sm text-cyan-300">
