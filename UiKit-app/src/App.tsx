@@ -7,6 +7,7 @@ import FeedbackPage from "./pages/feedbackPage";
 import InputComponentsShowcase from "./pages/inputPage";
 import ListComponentsPage from "./pages/listPage";
 import NavigationComponentsPage from "./pages/navBarPage";
+import DemoPage from "./pages/Demo";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/input" element={<InputComponentsShowcase />} />
         <Route path="/list" element={<ListComponentsPage />} />
         <Route path="/navbar" element={<NavigationComponentsPage />} />
+        <Route path="/demo" element={<DemoPage />} />
       </Routes>
     </Router>
   );

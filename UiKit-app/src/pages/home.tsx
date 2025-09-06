@@ -3,13 +3,15 @@ import Navbar from "../components/Navbar";
 import teste from "../assets/operating-system-upgrade-animate.svg";
 import AboutSection from "../components/About";
 import ComponentShowcase, { showcaseItems } from "../components/ShowCase";
+import { useNavigate } from "react-router-dom";
 export default function Home() {
+  const navigate = useNavigate();
   const handlePrimaryClick = () => {
     alert("Você clicou no botão principal!");
   };
 
   const handleSecondaryClick = () => {
-    alert("Você clicou no botão secundário!");
+    navigate("/demo");
   };
 
   return (
