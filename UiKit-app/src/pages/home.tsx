@@ -4,10 +4,13 @@ import teste from "../assets/operating-system-upgrade-animate.svg";
 import AboutSection from "../components/About";
 import ComponentShowcase, { showcaseItems } from "../components/ShowCase";
 import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
+
 export default function Home() {
   const navigate = useNavigate();
+  const componentsSectionRef = useRef<HTMLDivElement>(null);
   const handlePrimaryClick = () => {
-    alert("Você clicou no botão principal!");
+    componentsSectionRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   const handleSecondaryClick = () => {
@@ -43,7 +46,11 @@ export default function Home() {
         <AboutSection />
       </div>
 
-      <div className="container mx-auto px-4 py-10">
+      <div
+        className="container mx-auto px-4 py-10"
+        ref={componentsSectionRef}
+        id="Components"
+      >
         <ComponentShowcase components={showcaseItems} />
       </div>
     </div>
