@@ -5,6 +5,7 @@ import AboutSection from "../components/About";
 import ComponentShowcase, { showcaseItems } from "../components/ShowCase";
 import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
+import CTASection from "./CtaSection";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -52,6 +53,10 @@ export default function Home() {
         id="Components"
       >
         <ComponentShowcase components={showcaseItems} />
+      </div>
+
+      <div className="container mx-auto px-4 py-10">
+        <CTASection />
       </div>
     </div>
   );
