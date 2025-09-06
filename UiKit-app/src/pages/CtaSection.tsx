@@ -41,7 +41,7 @@ const CTASection = () => {
               className="bg-white text-blue-900 hover:bg-gray-100 font-semibold px-6 py-3 rounded-lg transition-colors inline-flex items-center"
             >
               <BookOpenIcon className="w-5 h-5 mr-2" />
-              View Documentacion
+              View Documentation
             </a>
           </div>
         </div>

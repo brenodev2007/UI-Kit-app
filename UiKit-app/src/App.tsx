@@ -9,6 +9,7 @@ import ListComponentsPage from "./pages/listPage";
 import NavigationComponentsPage from "./pages/navBarPage";
 import DemoPage from "./pages/Demo";
 import ContactPage from "./pages/contacs";
+import DocumentationPage from "./pages/documentation";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/navbar" element={<NavigationComponentsPage />} />
         <Route path="/demo" element={<DemoPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/docs" element={<DocumentationPage />} />
       </Routes>
     </Router>
   );
