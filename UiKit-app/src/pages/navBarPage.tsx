@@ -123,7 +123,7 @@ export default function NavigationComponentsPage() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0, transition: { duration: 0.8 } }}
       >
-        Componentes de Navegação
+        Navigation Components
       </motion.h1>
       <motion.p
         className="text-cyan-300 text-base md:text-lg mb-8 md:mb-12 max-w-3xl text-center"
@@ -134,10 +134,9 @@ export default function NavigationComponentsPage() {
           transition: { duration: 0.8, delay: 0.2 },
         }}
       >
-        Explore todos os componentes de navegação para criar interfaces
-        intuitivas.
+        Explore all navigation components to create intuitive interfaces.
         <br />
-        Copie o código abaixo de cada exemplo para usar em seus projetos! 🚀
+        Copy the code below each example to use in your projects! 🚀
       </motion.p>
 
       {/* Tabs de Navegação */}
@@ -180,7 +179,7 @@ export default function NavigationComponentsPage() {
           {/* Breadcrumb Básico */}
           <div className="mb-10">
             <h3 className="text-lg font-semibold mb-4 text-gray-300">
-              Breadcrumb Básico
+              Basic Breadcrumb
             </h3>
             {renderCodeCard(
               <div className="p-4 bg-gray-900 rounded-lg">
@@ -198,7 +197,7 @@ export default function NavigationComponentsPage() {
           {/* Breadcrumb Sem Ícone Home */}
           <div className="mb-10">
             <h3 className="text-lg font-semibold mb-4 text-gray-300">
-              Breadcrumb Sem Ícone Home
+              Breadcrumb No Home Icon
             </h3>
             {renderCodeCard(
               <div className="p-4 bg-gray-900 rounded-lg">
@@ -216,7 +215,7 @@ export default function NavigationComponentsPage() {
           {/* Breadcrumb Customizado */}
           <div>
             <h3 className="text-lg font-semibold mb-4 text-gray-300">
-              Breadcrumb Customizado
+              Custom Breadcrumb
             </h3>
             {renderCodeCard(
               <div className="p-4 bg-gray-900 rounded-lg">
@@ -249,12 +248,12 @@ export default function NavigationComponentsPage() {
           initial="hidden"
           animate="visible"
         >
-          <h2 className="text-2xl font-bold mb-6 text-cyan-400">Paginação</h2>
+          <h2 className="text-2xl font-bold mb-6 text-cyan-400">Pagination</h2>
 
           {/* Paginação Básica */}
           <div className="mb-10">
             <h3 className="text-lg font-semibold mb-4 text-gray-300">
-              Paginação Básica
+              Basic Paginação
             </h3>
             {renderCodeCard(
               <div className="p-4 bg-gray-900 rounded-lg flex justify-center">
@@ -275,7 +274,7 @@ export default function NavigationComponentsPage() {
           {/* Paginação Minimalista */}
           <div className="mb-10">
             <h3 className="text-lg font-semibold mb-4 text-gray-300">
-              Paginação Minimalista
+              Minimalist Paginação
             </h3>
             {renderCodeCard(
               <div className="p-4 bg-gray-900 rounded-lg flex justify-center">
@@ -296,7 +295,7 @@ export default function NavigationComponentsPage() {
           {/* Paginação Grande */}
           <div>
             <h3 className="text-lg font-semibold mb-4 text-gray-300">
-              Paginação Grande
+              Large Paginação
             </h3>
             {renderCodeCard(
               <div className="p-4 bg-gray-900 rounded-lg flex justify-center">
@@ -329,7 +328,7 @@ export default function NavigationComponentsPage() {
           {/* Sidebar Expandida */}
           <div className="mb-10">
             <h3 className="text-lg font-semibold mb-4 text-gray-300">
-              Sidebar Expandida
+              Expanded Sidebar
             </h3>
             {renderCodeCard(
               <div className="p-4 bg-gray-900 rounded-lg h-64 overflow-hidden relative">
@@ -347,7 +346,7 @@ export default function NavigationComponentsPage() {
           {/* Sidebar Recolhida */}
           <div>
             <h3 className="text-lg font-semibold mb-4 text-gray-300">
-              Sidebar Recolhida
+              Collected Sidebar
             </h3>
             {renderCodeCard(
               <div className="p-4 bg-gray-900 rounded-lg h-64 overflow-hidden relative">
@@ -372,12 +371,12 @@ export default function NavigationComponentsPage() {
           initial="hidden"
           animate="visible"
         >
-          <h2 className="text-2xl font-bold mb-6 text-cyan-400">Abas (Tabs)</h2>
+          <h2 className="text-2xl font-bold mb-6 text-cyan-400">Tabs (Tabs)</h2>
 
           {/* Abas Padrão */}
           <div className="mb-10">
             <h3 className="text-lg font-semibold mb-4 text-gray-300">
-              Abas Padrão
+              Standard Tabs
             </h3>
             {renderCodeCard(
               <div className="p-4 bg-gray-900 rounded-lg">
@@ -396,7 +395,7 @@ export default function NavigationComponentsPage() {
           {/* Abas em Pílulas */}
           <div className="mb-10">
             <h3 className="text-lg font-semibold mb-4 text-gray-300">
-              Abas em Pílulas
+              Pill Tabs
             </h3>
             {renderCodeCard(
               <div className="p-4 bg-gray-900 rounded-lg">
@@ -415,7 +414,7 @@ export default function NavigationComponentsPage() {
           {/* Abas com Underline */}
           <div>
             <h3 className="text-lg font-semibold mb-4 text-gray-300">
-              Abas com Underline
+              Tabs with Underline
             </h3>
             {renderCodeCard(
               <div className="p-4 bg-gray-900 rounded-lg">
@@ -444,12 +443,12 @@ export default function NavigationComponentsPage() {
         }}
       >
         <h2 className="text-xl font-semibold mb-4 text-cyan-400">
-          Como usar os componentes de Navegação
+          How to use Navigation components
         </h2>
         <p className="text-gray-300 mb-4">
-          Os componentes de navegação são essenciais para criar interfaces
-          intuitivas e fáceis de usar. Eles ajudam os usuários a se orientarem
-          dentro da aplicação e acessarem diferentes seções.
+          Navigation components are essential for creating intuitive and
+          easy-to-use interfaces. They help users navigate the application and
+          access different sections.
         </p>
         <div className="bg-gray-900 rounded-lg p-4 overflow-x-auto">
           <code className="text-sm text-cyan-300">
