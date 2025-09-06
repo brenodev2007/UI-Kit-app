@@ -8,6 +8,7 @@ import InputComponentsShowcase from "./pages/inputPage";
 import ListComponentsPage from "./pages/listPage";
 import NavigationComponentsPage from "./pages/navBarPage";
 import DemoPage from "./pages/Demo";
+import ContactPage from "./pages/contacs";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/list" element={<ListComponentsPage />} />
         <Route path="/navbar" element={<NavigationComponentsPage />} />
         <Route path="/demo" element={<DemoPage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </Router>
   );

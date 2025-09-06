@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import emailjs from "emailjs-com";
+import Navbar from "../components/Navbar";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -11,53 +11,73 @@ const ContactPage = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleChange = (e: { target: { name: any; value: any } }) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = (e: { preventDefault: () => void }) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus("");
+    setErrorMessage("");
 
-    // Replace these with your actual EmailJS credentials
-    const serviceID = "your_service_id";
-    const templateID = "your_template_id";
-    const userID = "your_user_id";
+    // Validar formulário
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.subject ||
+      !formData.message
+    ) {
+      setErrorMessage("Please fill in all fields");
+      setIsSubmitting(false);
+      return;
+    }
 
-    emailjs
-      .send(
-        serviceID,
-        templateID,
-        {
-          to_email: "breno.soriani@gmail.com",
-          from_name: formData.name,
-          from_email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-        },
-        userID
-      )
-      .then((response) => {
-        console.log("SUCCESS!", response.status, response.text);
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setErrorMessage("Please enter a valid email address");
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      // Criar o link mailto
+      const mailtoLink = `mailto:breno.soriani@gmail.com?subject=${encodeURIComponent(
+        formData.subject
+      )}&body=${encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      )}`;
+
+      // Abrir o cliente de email
+      window.location.href = mailtoLink;
+
+      // Simular sucesso após um pequeno delay
+      setTimeout(() => {
         setSubmitStatus("success");
         setFormData({ name: "", email: "", subject: "", message: "" });
-      })
-      .catch((err) => {
-        console.error("FAILED...", err);
-        setSubmitStatus("error");
-      })
-      .finally(() => {
         setIsSubmitting(false);
-      });
+      }, 1000);
+    } catch (err: any) {
+      console.error("Error:", err);
+      setSubmitStatus("error");
+      setErrorMessage("Failed to prepare email. Please try again.");
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <div className="min-h-screen bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
+      <div>
+        <Navbar />
+      </div>
+
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -65,7 +85,9 @@ const ContactPage = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl font-bold mb-4">Get in Touch</h1>
+          <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">
+            Get in Touch
+          </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Have a question or want to work together? Send me a message and I'll
             get back to you as soon as possible.
@@ -108,6 +130,12 @@ const ContactPage = () => {
                 <div>
                   <h3 className="font-semibold text-lg">Email</h3>
                   <p className="text-gray-300">breno.soriani@gmail.com</p>
+                  <a
+                    href="mailto:breno.soriani@gmail.com"
+                    className="text-indigo-400 hover:text-indigo-300 text-sm mt-1 inline-block"
+                  >
+                    Click to send directly
+                  </a>
                 </div>
               </div>
 
@@ -215,6 +243,21 @@ const ContactPage = () => {
                   </p>
                 </div>
               </div>
+
+              <div className="pt-4">
+                <h3 className="font-semibold text-lg mb-2">
+                  Other Contact Options
+                </h3>
+                <p className="text-gray-300 text-sm">
+                  Prefer to connect via WhatsApp or schedule a meeting?
+                  <a
+                    href="#"
+                    className="text-indigo-400 hover:text-indigo-300 ml-1"
+                  >
+                    Click here to see availability
+                  </a>
+                </p>
+              </div>
             </div>
           </motion.div>
 
@@ -225,6 +268,16 @@ const ContactPage = () => {
             className="bg-gray-800 p-8 rounded-xl shadow-xl"
           >
             <h2 className="text-2xl font-bold mb-6">Send me a message</h2>
+
+            <div className="mb-6 p-4 bg-blue-900/20 border border-blue-700 rounded-lg">
+              <h3 className="font-medium text-blue-300 mb-2">How it works</h3>
+              <p className="text-sm text-gray-400">
+                Filling out this form will open your default email client with a
+                pre-filled message. Just click "send" to deliver your message
+                directly to my inbox.
+              </p>
+            </div>
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
@@ -241,7 +294,8 @@ const ContactPage = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-colors"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-colors disabled:opacity-50"
                     placeholder="Enter your name"
                   />
                 </div>
@@ -259,7 +313,8 @@ const ContactPage = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-colors"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-colors disabled:opacity-50"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -279,7 +334,8 @@ const ContactPage = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-colors"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-colors disabled:opacity-50"
                   placeholder="What is this regarding?"
                 />
               </div>
@@ -298,10 +354,17 @@ const ContactPage = () => {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-colors"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-colors disabled:opacity-50"
                   placeholder="Type your message here..."
                 ></textarea>
               </div>
+
+              {errorMessage && (
+                <div className="p-3 bg-red-900/30 border border-red-700 rounded-lg text-red-300">
+                  {errorMessage}
+                </div>
+              )}
 
               <button
                 type="submit"
@@ -330,28 +393,53 @@ const ContactPage = () => {
                         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                       ></path>
                     </svg>
-                    Sending...
+                    Preparing your email...
                   </span>
                 ) : (
-                  "Send Message"
+                  "Open Email Client"
                 )}
               </button>
 
               {submitStatus === "success" && (
-                <div className="mt-4 p-4 bg-green-900/30 border border-green-800 rounded-lg text-green-400">
-                  <p>Thank you! Your message has been sent successfully.</p>
+                <div className="mt-4 p-4 bg-green-900/30 border border-green-700 rounded-lg text-green-300">
+                  <p className="font-medium">
+                    Your email client should open shortly with a pre-filled
+                    message.
+                  </p>
+                  <p className="mt-1 text-sm">
+                    If it doesn't open automatically, please send your email
+                    directly to{" "}
+                    <span className="font-mono">breno.soriani@gmail.com</span>.
+                  </p>
                 </div>
               )}
 
-              {submitStatus === "error" && (
-                <div className="mt-4 p-4 bg-red-900/30 border border-red-800 rounded-lg text-red-400">
+              {submitStatus === "error" && !errorMessage && (
+                <div className="mt-4 p-4 bg-red-900/30 border border-red-700 rounded-lg text-red-300">
                   <p>
-                    Sorry, there was an error sending your message. Please try
-                    again later.
+                    Sorry, there was an error preparing your email. Please try
+                    again later or contact me directly at{" "}
+                    <span className="font-mono">breno.soriani@gmail.com</span>.
                   </p>
                 </div>
               )}
             </form>
+
+            <div className="mt-8 p-4 bg-indigo-900/20 border border-indigo-700 rounded-lg">
+              <h3 className="font-medium text-indigo-300 mb-2">
+                Direct Contact
+              </h3>
+              <p className="text-sm text-gray-400">
+                You can always email me directly at{" "}
+                <a
+                  href="mailto:breno.soriani@gmail.com"
+                  className="text-indigo-400 hover:underline"
+                >
+                  breno.soriani@gmail.com
+                </a>
+                . I typically respond within 24 hours.
+              </p>
+            </div>
           </motion.div>
         </div>
       </div>
