@@ -4,24 +4,24 @@ import { motion } from "framer-motion";
 export default function Vantagens() {
   const vantagens = [
     {
-      titulo: "Produtividade",
+      titulo: "Productivity",
       descricao:
-        "Reduza o tempo de desenvolvimento com componentes prontos e altamente reutilizáveis.",
+        "Reduce development time with ready-to-use, highly reusable components.",
     },
     {
       titulo: "Performance",
       descricao:
-        "Código otimizado para rodar de forma leve e rápida em qualquer projeto React.",
+        "Optimized code that runs fast and lightweight in any React project.",
     },
     {
-      titulo: "Customização",
+      titulo: "Customization",
       descricao:
-        "Estilize facilmente com Tailwind e adapte cada componente ao seu design system.",
+        "Easily style with Tailwind and adapt each component to your design system.",
     },
     {
-      titulo: "Escalabilidade",
+      titulo: "Scalability",
       descricao:
-        "Perfeita para projetos pequenos ou grandes, crescendo junto com sua aplicação.",
+        "Perfect for small or large projects, growing along with your application.",
     },
   ];
 
