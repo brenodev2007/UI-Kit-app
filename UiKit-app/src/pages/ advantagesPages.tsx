@@ -34,7 +34,7 @@ export default function Vantagens() {
     <section id="vantagens" className="py-20 ">
       <div className="max-w-6xl mx-auto px-6">
         <h2 className="text-4xl font-bold text-white mb-12 text-center">
-          Why use the LumiUi
+          Why use the SorianiUi
         </h2>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">

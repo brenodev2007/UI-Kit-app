@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* About */}
         <div>
-          <h3 className="text-xl font-bold mb-4">MyLib</h3>
+          <h3 className="text-xl font-bold mb-4">SorianiUi</h3>
           <p className="text-gray-400">
             The library that makes your React development easier with modern,
             fast, and easily customizable components.
@@ -72,7 +72,7 @@ export default function Footer() {
       </div>
 
       <div className="mt-12 text-center text-gray-500 text-sm">
-        © {new Date().getFullYear()} MyLib. All rights reserved.
+        © {new Date().getFullYear()} Breno Soriani. All rights reserved.
       </div>
     </footer>
   );
