@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import Input from "../components/input/textField";
 import Modal from "../components/feedbacks/modal";
+import Alert from "../components/feedbacks/alert";
+import { CardAvatar } from "../components/cards/Cards";
+import Badge from "../components/feedbacks/badge";
+import { Link } from "react-router-dom";
 
 const DocumentationPage = () => {
   const [activeTab, setActiveTab] = useState("installation");
@@ -30,10 +34,12 @@ const DocumentationPage = () => {
       <header className="bg-white shadow-sm z-10">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-              <CubeIcon className="w-6 h-6 text-white" />
-            </div>
-            <h1 className="text-2xl font-bold text-gray-900">LumiUI Docs</h1>
+            <Link to="/" className="block">
+              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center cursor-pointer hover:bg-blue-700 transition">
+                <CubeIcon className="w-6 h-6 text-white" />
+              </div>
+            </Link>
+            <h1 className="text-2xl font-bold text-gray-900">SorianiUI Docs</h1>
           </div>
 
           <div className="hidden md:flex space-x-6">
@@ -49,12 +55,7 @@ const DocumentationPage = () => {
             >
               Components
             </button>
-            <button
-              onClick={() => setActiveTab("examples")}
-              className="text-gray-700 hover:text-blue-600"
-            >
-              Examples
-            </button>
+
             <button
               onClick={() => setActiveTab("api")}
               className="text-gray-700 hover:text-blue-600"
@@ -148,7 +149,6 @@ const DocumentationPage = () => {
                   "Alert",
                   "Avatar",
                   "Badge",
-                  "Dropdown",
                 ].map((component) => (
                   <li key={component}>
                     <button
@@ -230,15 +230,15 @@ const DocumentationPage = () => {
                   Installation
                 </h2>
                 <p className="text-gray-700 mb-6">
-                  Get started with LumiUI by installing it via npm or yarn. Make
-                  sure you have React installed in your project first.
+                  Get started with SorianiUI by installing it via npm or yarn.
+                  Make sure you have React installed in your project first.
                 </p>
 
                 <div className="bg-gray-800 rounded-lg p-4 mb-6 relative">
                   <div className="absolute top-3 right-3">
                     <button
                       onClick={() =>
-                        copyToClipboard("npm install lumi-ui", "install-npm")
+                        copyToClipboard("npm install soriani-ui", "install-npm")
                       }
                       className="text-gray-400 hover:text-white transition-colors"
                     >
@@ -250,7 +250,7 @@ const DocumentationPage = () => {
                     </button>
                   </div>
                   <code className="text-white font-mono block">
-                    npm install lumi-ui
+                    npm install soriani-ui
                   </code>
                 </div>
 
@@ -258,7 +258,7 @@ const DocumentationPage = () => {
                   <div className="absolute top-3 right-3">
                     <button
                       onClick={() =>
-                        copyToClipboard("yarn add lumi-ui", "install-yarn")
+                        copyToClipboard("yarn add soriani-ui", "install-yarn")
                       }
                       className="text-gray-400 hover:text-white transition-colors"
                     >
@@ -270,7 +270,7 @@ const DocumentationPage = () => {
                     </button>
                   </div>
                   <code className="text-white font-mono block">
-                    yarn add lumi-ui
+                    yarn add soriani-ui
                   </code>
                 </div>
 
@@ -278,7 +278,7 @@ const DocumentationPage = () => {
                   Peer Dependencies
                 </h3>
                 <p className="text-gray-700 mb-4">
-                  LumiUI requires the following peer dependencies. Make sure
+                  SorianiUI requires the following peer dependencies. Make sure
                   they are installed in your project:
                 </p>
                 <ul className="list-disc pl-5 text-gray-700 mb-6 space-y-2">
@@ -294,8 +294,8 @@ const DocumentationPage = () => {
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">Usage</h2>
                 <p className="text-gray-700 mb-6">
-                  After installing LumiUI, you can import components and start
-                  using them in your application.
+                  After installing SorianiUI, you can import components and
+                  start using them in your application.
                 </p>
 
                 <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-4">
@@ -306,7 +306,7 @@ const DocumentationPage = () => {
                     <button
                       onClick={() =>
                         copyToClipboard(
-                          `import { Button } from 'lumi-ui';
+                          `import { Button } from 'Soriani-ui';
 
 function App() {
   return (
@@ -330,7 +330,7 @@ export default App;`,
                     </button>
                   </div>
                   <pre className="text-white font-mono text-sm">
-                    {`import { Button } from 'lumi-ui';
+                    {`import { Button } from 'Soriani-ui';
 
 function App() {
   return (
@@ -348,9 +348,9 @@ export default App;`}
                   CSS Setup
                 </h3>
                 <p className="text-gray-700 mb-4">
-                  Make sure to include the LumiUI styles in your project. If
-                  you're using Tailwind CSS, you need to add the LumiUI source
-                  files to your tailwind.config.js:
+                  Make sure to include the SorianiUI styles in your project. If
+                  you're using Tailwind CSS, you need to add the SorianiUI
+                  source files to your tailwind.config.js:
                 </p>
 
                 <div className="bg-gray-800 rounded-lg p-4 mb-6 relative">
@@ -362,7 +362,7 @@ export default App;`}
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
-    "./node_modules/lumi-ui/**/*.{js,jsx,ts,tsx}"
+    "./node_modules/Soriani-ui/**/*.{js,jsx,ts,tsx}"
   ],
   theme: {
     extend: {},
@@ -386,7 +386,7 @@ module.exports = {
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
-    "./node_modules/lumi-ui/**/*.{js,jsx,ts,tsx}"
+    "./node_modules/Soriani-ui/**/*.{js,jsx,ts,tsx}"
   ],
   theme: {
     extend: {},
@@ -405,7 +405,7 @@ module.exports = {
                   Theming
                 </h2>
                 <p className="text-gray-700 mb-6">
-                  Customize LumiUI to match your project's design system with
+                  Customize SorianiUI to match your project's design system with
                   our comprehensive theming system.
                 </p>
 
@@ -426,7 +426,7 @@ module.exports = {
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
-    "./node_modules/lumi-ui/**/*.{js,jsx,ts,tsx}"
+    "./node_modules/Soriani-ui/**/*.{js,jsx,ts,tsx}"
   ],
   theme: {
     extend: {
@@ -458,7 +458,7 @@ module.exports = {
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
-    "./node_modules/lumi-ui/**/*.{js,jsx,ts,tsx}"
+    "./node_modules/Soriani-ui/**/*.{js,jsx,ts,tsx}"
   ],
   theme: {
     extend: {
@@ -486,7 +486,7 @@ module.exports = {
                 </h2>
                 <p className="text-gray-700 mb-6">
                   Buttons allow users to perform actions with a single tap.
-                  LumiUI provides a versatile Button component with multiple
+                  SorianiUI provides a versatile Button component with multiple
                   variants and sizes.
                 </p>
 
@@ -498,7 +498,7 @@ module.exports = {
                     <button
                       onClick={() =>
                         copyToClipboard(
-                          `import { Button } from 'lumi-ui';`,
+                          `import { Button } from 'Soriani-ui';`,
                           "button-import"
                         )
                       }
@@ -512,7 +512,7 @@ module.exports = {
                     </button>
                   </div>
                   <code className="text-white font-mono block">
-                    import {"{"} Button {"}"} from 'lumi-ui';
+                    import {"{"} Button {"}"} from 'Soriani-ui';
                   </code>
                 </div>
 
@@ -664,7 +664,7 @@ module.exports = {
                     <button
                       onClick={() =>
                         copyToClipboard(
-                          `import { Card } from 'lumi-ui';`,
+                          `import { Card } from 'Soriani-ui';`,
                           "card-import"
                         )
                       }
@@ -678,7 +678,7 @@ module.exports = {
                     </button>
                   </div>
                   <code className="text-white font-mono block">
-                    import {"{"} Card {"}"} from 'lumi-ui';
+                    import {"{"} Card {"}"} from 'Soriani-ui';
                   </code>
                 </div>
 
@@ -750,7 +750,7 @@ module.exports = {
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">Input</h2>
                 <p className="text-gray-700 mb-6">
-                  The Input component allows users to enter text. LumiUI
+                  The Input component allows users to enter text. SorianiUI
                   provides various input types and sizes for different use
                   cases.
                 </p>
@@ -763,7 +763,7 @@ module.exports = {
                     <button
                       onClick={() =>
                         copyToClipboard(
-                          `import { Input } from 'lumi-ui';`,
+                          `import { Input } from 'Soriani-ui';`,
                           "input-import"
                         )
                       }
@@ -777,7 +777,7 @@ module.exports = {
                     </button>
                   </div>
                   <code className="text-white font-mono block">
-                    import {"{"} Input {"}"} from 'lumi-ui';
+                    import {"{"} Input {"}"} from 'Soriani-ui';
                   </code>
                 </div>
 
@@ -818,74 +818,6 @@ module.exports = {
                     </pre>
                   </div>
                 </div>
-
-                <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-4">
-                  API Reference
-                </h3>
-                <div className="overflow-x-auto mb-8">
-                  <table className="min-w-full divide-y divide-gray-200">
-                    <thead className="bg-gray-50">
-                      <tr>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                          Prop
-                        </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                          Type
-                        </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                          Default
-                        </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                          Description
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody className="bg-white divide-y divide-gray-200">
-                      <tr>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                          type
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          string
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          "text"
-                        </td>
-                        <td className="px-6 py-4 text-sm text-gray-500">
-                          Input type, e.g., text, password
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                          placeholder
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          string
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          ""
-                        </td>
-                        <td className="px-6 py-4 text-sm text-gray-500">
-                          Placeholder text
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                          disabled
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          boolean
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          false
-                        </td>
-                        <td className="px-6 py-4 text-sm text-gray-500">
-                          Disables the input
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
               </div>
             )}
 
@@ -895,8 +827,8 @@ module.exports = {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">Modal</h2>
                 <p className="text-gray-700 mb-6">
                   The Modal component is used to display content in a layer
-                  above the application. LumiUI Modal supports headers, footers,
-                  and customizable sizes.
+                  above the application. SorianiUI Modal supports headers,
+                  footers, and customizable sizes.
                 </p>
 
                 <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-4">
@@ -907,7 +839,7 @@ module.exports = {
                     <button
                       onClick={() =>
                         copyToClipboard(
-                          `import { Modal } from 'lumi-ui';`,
+                          `import { Modal } from 'Soriani-ui';`,
                           "modal-import"
                         )
                       }
@@ -921,7 +853,7 @@ module.exports = {
                     </button>
                   </div>
                   <code className="text-white font-mono block">
-                    import {"{"} Modal {"}"} from 'lumi-ui';
+                    import {"{"} Modal {"}"} from 'Soriani-ui';
                   </code>
                 </div>
 
@@ -1011,7 +943,7 @@ module.exports = {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">Input</h2>
                 <p className="text-gray-700 mb-6">
                   The Input component allows users to enter text or numbers.
-                  LumiUI Input supports different types, sizes, placeholders,
+                  SorianiUI Input supports different types, sizes, placeholders,
                   and disabled states.
                 </p>
 
@@ -1023,7 +955,7 @@ module.exports = {
                     <button
                       onClick={() =>
                         copyToClipboard(
-                          `import { Input } from 'lumi-ui';`,
+                          `import { Input } from 'Soriani-ui';`,
                           "input-import"
                         )
                       }
@@ -1037,7 +969,7 @@ module.exports = {
                     </button>
                   </div>
                   <code className="text-white font-mono block">
-                    import {"{"} Input {"}"} from 'lumi-ui';
+                    import {"{"} Input {"}"} from 'Soriani-ui';
                   </code>
                 </div>
 
@@ -1081,7 +1013,296 @@ module.exports = {
                     </pre>
                   </div>
                 </div>
+              </div>
+            )}
 
+            {/*alert Documentation */}
+            {activeTab === "alert" && (
+              <div>
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">Alert</h2>
+                <p className="text-gray-700 mb-6">
+                  The Alert component is used to display important feedback
+                  messages. SorianiUI Alert supports different variants,
+                  optional titles, messages, and a dismissible close button.
+                </p>
+
+                <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-4">
+                  Import
+                </h3>
+                <div className="bg-gray-800 rounded-lg p-4 mb-6 relative">
+                  <div className="absolute top-3 right-3">
+                    <button
+                      onClick={() =>
+                        copyToClipboard(
+                          `import { Alert } from 'Soriani-ui';`,
+                          "alert-import"
+                        )
+                      }
+                      className="text-gray-400 hover:text-white transition-colors"
+                    >
+                      {copiedCode === "alert-import" ? (
+                        <CheckIcon className="w-5 h-5" />
+                      ) : (
+                        <ClipboardIcon className="w-5 h-5" />
+                      )}
+                    </button>
+                  </div>
+                  <code className="text-white font-mono block">
+                    import {"{"} Alert {"}"} from 'Soriani-ui';
+                  </code>
+                </div>
+
+                <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-4">
+                  Examples
+                </h3>
+                <div className="border border-gray-200 rounded-lg p-6 mb-6">
+                  <div className="flex flex-col gap-4 mb-8">
+                    <Alert
+                      variant="success"
+                      title="Success!"
+                      message="Action completed successfully."
+                    />
+                    <Alert
+                      variant="error"
+                      title="Error!"
+                      message="Something went wrong."
+                    />
+                    <Alert
+                      variant="warning"
+                      title="Warning!"
+                      message="This action has risks."
+                    />
+                    <Alert
+                      variant="info"
+                      message="This is an informational alert."
+                    />
+                  </div>
+
+                  <div className="bg-gray-800 rounded-lg p-4 relative">
+                    <div className="absolute top-3 right-3">
+                      <button
+                        onClick={() =>
+                          copyToClipboard(
+                            `<Alert variant="success" title="Success!" message="Action completed successfully." />
+<Alert variant="error" title="Error!" message="Something went wrong." />
+<Alert variant="warning" title="Warning!" message="This action has risks." />
+<Alert variant="info" message="This is an informational alert." />`,
+                            "alert-examples"
+                          )
+                        }
+                        className="text-gray-400 hover:text-white transition-colors"
+                      >
+                        {copiedCode === "alert-examples" ? (
+                          <CheckIcon className="w-5 h-5" />
+                        ) : (
+                          <ClipboardIcon className="w-5 h-5" />
+                        )}
+                      </button>
+                    </div>
+                    <pre className="text-white font-mono text-sm">
+                      {`<Alert variant="success" title="Success!" message="Action completed successfully." />
+<Alert variant="error" title="Error!" message="Something went wrong." />
+<Alert variant="warning" title="Warning!" message="This action has risks." />
+<Alert variant="info" message="This is an informational alert." />`}
+                    </pre>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/*Avatar Documentation */}
+            {activeTab === "avatar" && (
+              <div>
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                  Avatar
+                </h2>
+                <p className="text-gray-700 mb-6">
+                  The Avatar component is used to display user profile pictures.
+                  SorianiUI Avatar supports different sizes and can include alt
+                  text for accessibility.
+                </p>
+
+                {/* Import */}
+                <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-4">
+                  Import
+                </h3>
+                <div className="bg-gray-800 rounded-lg p-4 mb-6 relative">
+                  <div className="absolute top-3 right-3">
+                    <button
+                      onClick={() =>
+                        copyToClipboard(
+                          `import { Avatar } from 'Soriani-ui';`,
+                          "avatar-import"
+                        )
+                      }
+                      className="text-gray-400 hover:text-white transition-colors"
+                    >
+                      {copiedCode === "avatar-import" ? (
+                        <CheckIcon className="w-5 h-5" />
+                      ) : (
+                        <ClipboardIcon className="w-5 h-5" />
+                      )}
+                    </button>
+                  </div>
+                  <code className="text-white font-mono block">
+                    import {"{"} Avatar {"}"} from 'Soriani-ui';
+                  </code>
+                </div>
+
+                {/* Examples */}
+                <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-4">
+                  Examples
+                </h3>
+                <div className="border border-gray-200 rounded-lg p-6 mb-6">
+                  <div className="flex items-center gap-6 mb-8">
+                    <CardAvatar
+                      src="https://i.pravatar.cc/150?img=10"
+                      alt="Small Avatar"
+                      size="sm"
+                    />
+                    <CardAvatar
+                      src="https://i.pravatar.cc/150?img=11"
+                      alt="Medium Avatar"
+                      size="md"
+                    />
+                    <CardAvatar
+                      src="https://i.pravatar.cc/150?img=12"
+                      alt="Large Avatar"
+                      size="lg"
+                    />
+                  </div>
+
+                  <div className="bg-gray-800 rounded-lg p-4 relative">
+                    <div className="absolute top-3 right-3">
+                      <button
+                        onClick={() =>
+                          copyToClipboard(
+                            `<Avatar src="https://i.pravatar.cc/150?img=10" alt="Small Avatar" size="sm" />
+<Avatar src="https://i.pravatar.cc/150?img=11" alt="Medium Avatar" size="md" />
+<Avatar src="https://i.pravatar.cc/150?img=12" alt="Large Avatar" size="lg" />`,
+                            "avatar-examples"
+                          )
+                        }
+                        className="text-gray-400 hover:text-white transition-colors"
+                      >
+                        {copiedCode === "avatar-examples" ? (
+                          <CheckIcon className="w-5 h-5" />
+                        ) : (
+                          <ClipboardIcon className="w-5 h-5" />
+                        )}
+                      </button>
+                    </div>
+                    <pre className="text-white font-mono text-sm">
+                      {`<Avatar src="https://i.pravatar.cc/150?img=10" alt="Small Avatar" size="sm" />
+<Avatar src="https://i.pravatar.cc/150?img=11" alt="Medium Avatar" size="md" />
+<Avatar src="https://i.pravatar.cc/150?img=12" alt="Large Avatar" size="lg" />`}
+                    </pre>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/*Bagde Documentation */}
+            {activeTab === "badge" && (
+              <div>
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">Badge</h2>
+                <p className="text-gray-700 mb-6">
+                  The Badge component is used to highlight small pieces of
+                  information. SorianiUI Badge supports different variants,
+                  sizes, and rounded styles.
+                </p>
+
+                {/* Import */}
+                <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-4">
+                  Import
+                </h3>
+                <div className="bg-gray-800 rounded-lg p-4 mb-6 relative">
+                  <div className="absolute top-3 right-3">
+                    <button
+                      onClick={() =>
+                        copyToClipboard(
+                          `import { Badge } from 'Soriani-ui';`,
+                          "badge-import"
+                        )
+                      }
+                      className="text-gray-400 hover:text-white transition-colors"
+                    >
+                      {copiedCode === "badge-import" ? (
+                        <CheckIcon className="w-5 h-5" />
+                      ) : (
+                        <ClipboardIcon className="w-5 h-5" />
+                      )}
+                    </button>
+                  </div>
+                  <code className="text-white font-mono block">
+                    import {"{"} Badge {"}"} from 'Soriani-ui';
+                  </code>
+                </div>
+
+                {/* Examples */}
+                <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-4">
+                  Examples
+                </h3>
+                <div className="border border-gray-200 rounded-lg p-6 mb-6">
+                  <div className="flex flex-wrap gap-4 mb-8">
+                    <Badge
+                      variant="success"
+                      title="Success!"
+                      message="Action completed successfully."
+                    ></Badge>
+                    <Badge
+                      variant="error"
+                      title="Error!"
+                      message="Error"
+                    ></Badge>
+                    <Badge
+                      variant="warning"
+                      title="Warning!"
+                      message="Warning."
+                    ></Badge>
+                    <Badge variant="info" title="Info" message="Info"></Badge>
+                  </div>
+
+                  <div className="bg-gray-800 rounded-lg p-4 relative">
+                    <div className="absolute top-3 right-3">
+                      <button
+                        onClick={() =>
+                          copyToClipboard(
+                            `<Badge variant="primary">Primary</Badge>
+<Badge variant="secondary">Secondary</Badge>
+<Badge variant="success">Success</Badge>
+<Badge variant="warning">Warning</Badge>
+<Badge variant="error">Error</Badge>
+<Badge variant="info">Info</Badge>`,
+                            "badge-examples"
+                          )
+                        }
+                        className="text-gray-400 hover:text-white transition-colors"
+                      >
+                        {copiedCode === "badge-examples" ? (
+                          <CheckIcon className="w-5 h-5" />
+                        ) : (
+                          <ClipboardIcon className="w-5 h-5" />
+                        )}
+                      </button>
+                    </div>
+                    <pre className="text-white font-mono text-sm">
+                      {`<Badge variant="primary">Primary</Badge>
+<Badge variant="secondary">Secondary</Badge>
+<Badge variant="success">Success</Badge>
+<Badge variant="warning">Warning</Badge>
+<Badge variant="error">Error</Badge>
+<Badge variant="info">Info</Badge>`}
+                    </pre>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* API Reference Section */}
+            {activeTab === "api" && (
+              <div>
+                {/* API Reference */}
                 <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-4">
                   API Reference
                 </h3>
@@ -1106,30 +1327,30 @@ module.exports = {
                     <tbody className="bg-white divide-y divide-gray-200">
                       <tr>
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                          placeholder
+                          src
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                           string
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          ""
+                          (required)
                         </td>
                         <td className="px-6 py-4 text-sm text-gray-500">
-                          Placeholder text
+                          Image URL for the avatar
                         </td>
                       </tr>
                       <tr>
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                          disabled
+                          alt
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          boolean
+                          string
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          false
+                          -
                         </td>
                         <td className="px-6 py-4 text-sm text-gray-500">
-                          Disables the input
+                          Alternative text for accessibility
                         </td>
                       </tr>
                       <tr>
@@ -1143,132 +1364,11 @@ module.exports = {
                           'md'
                         </td>
                         <td className="px-6 py-4 text-sm text-gray-500">
-                          Determines input size
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                          value
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          string
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          ""
-                        </td>
-                        <td className="px-6 py-4 text-sm text-gray-500">
-                          Controlled input value
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                          onChange
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          (e: React.ChangeEvent&lt;HTMLInputElement&gt;) =&gt;
-                          void
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          -
-                        </td>
-                        <td className="px-6 py-4 text-sm text-gray-500">
-                          Callback when input value changes
+                          Controls the avatar size
                         </td>
                       </tr>
                     </tbody>
                   </table>
-                </div>
-              </div>
-            )}
-
-            {/* Placeholder sections for other components */}
-            {["alert", "avatar", "badge", "dropdown"].includes(activeTab) && (
-              <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                  {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}
-                </h2>
-                <p className="text-gray-700 mb-6">
-                  Documentation for the {activeTab} component is coming soon.
-                  Check back later for detailed information, examples, and API
-                  reference.
-                </p>
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 text-center">
-                  <h3 className="text-lg font-medium text-blue-800 mb-2">
-                    Component Under Development
-                  </h3>
-                  <p className="text-blue-700">
-                    We're working hard to document all LumiUI components. This
-                    section will be available in the next update.
-                  </p>
-                </div>
-              </div>
-            )}
-
-            {/* API Reference Section */}
-            {activeTab === "api" && (
-              <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                  API Reference
-                </h2>
-                <p className="text-gray-700 mb-6">
-                  Comprehensive API documentation for all LumiUI components,
-                  props, and utilities.
-                </p>
-
-                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 text-center">
-                  <h3 className="text-lg font-medium text-yellow-800 mb-2">
-                    API Documentation In Progress
-                  </h3>
-                  <p className="text-yellow-700">
-                    We're compiling detailed API documentation for all
-                    components. This section will be available soon.
-                  </p>
-                </div>
-              </div>
-            )}
-
-            {/* Examples Section */}
-            {activeTab === "examples" && (
-              <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                  Examples
-                </h2>
-                <p className="text-gray-700 mb-6">
-                  Explore real-world examples of LumiUI components in action.
-                  These examples demonstrate common use cases and best
-                  practices.
-                </p>
-
-                <div className="grid md:grid-cols-2 gap-6 mb-8">
-                  <div className="border border-gray-200 rounded-lg p-4">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                      Login Form
-                    </h3>
-                    <p className="text-gray-700 mb-4">
-                      A simple login form using Input and Button components.
-                    </p>
-                    <button
-                      onClick={() => setActiveTab("input")}
-                      className="text-blue-600 hover:text-blue-800 font-medium"
-                    >
-                      View Example →
-                    </button>
-                  </div>
-
-                  <div className="border border-gray-200 rounded-lg p-4">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                      User Profile
-                    </h3>
-                    <p className="text-gray-700 mb-4">
-                      A user profile card with Avatar and Badge components.
-                    </p>
-                    <button
-                      onClick={() => setActiveTab("avatar")}
-                      className="text-blue-600 hover:text-blue-800 font-medium"
-                    >
-                      View Example →
-                    </button>
-                  </div>
                 </div>
               </div>
             )}
@@ -1280,7 +1380,7 @@ module.exports = {
                   Frequently Asked Questions
                 </h2>
                 <p className="text-gray-700 mb-6">
-                  Find answers to common questions about LumiUI installation,
+                  Find answers to common questions about SorianiUI installation,
                   usage, and customization.
                 </p>
 
@@ -1290,18 +1390,19 @@ module.exports = {
                       How do I customize the theme?
                     </h3>
                     <p className="text-gray-700">
-                      You can customize LumiUI by extending the default Tailwind
-                      CSS configuration. See the Theming section for detailed
-                      instructions.
+                      You can customize SorianiUI by extending the default
+                      Tailwind CSS configuration. See the Theming section for
+                      detailed instructions.
                     </p>
                   </div>
 
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                      Does LumiUI work with React 18?
+                      Does SorianiUI work with React 18?
                     </h3>
                     <p className="text-gray-700">
-                      Yes, LumiUI is compatible with both React 17 and React 18.
+                      Yes, SorianiUI is compatible with both React 17 and React
+                      18.
                     </p>
                   </div>
 
@@ -1325,7 +1426,7 @@ module.exports = {
                   <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                     <CubeIcon className="w-5 h-5 text-white" />
                   </div>
-                  <span className="text-gray-700 font-medium">LumiUI</span>
+                  <span className="text-gray-700 font-medium">SorianiUI</span>
                 </div>
                 <div className="flex space-x-6">
                   <a
@@ -1342,12 +1443,7 @@ module.exports = {
                   >
                     Documentation
                   </button>
-                  <button
-                    onClick={() => setActiveTab("examples")}
-                    className="text-gray-500 hover:text-gray-700"
-                  >
-                    Examples
-                  </button>
+
                   <a href="#" className="text-gray-500 hover:text-gray-700">
                     License
                   </a>

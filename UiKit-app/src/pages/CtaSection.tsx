@@ -24,7 +24,7 @@ const CTASection = () => {
           <div className="relative w-full md:w-auto">
             <div className="bg-gray-800 rounded-lg p-4 pr-20">
               <code className="text-white font-mono px-10">
-                npm install lumi-ui
+                npm install soriani-ui
               </code>
             </div>
             <button

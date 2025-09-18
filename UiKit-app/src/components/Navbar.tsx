@@ -27,7 +27,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link to="/">
           <h1 className="font-bold text-2xl text-gray-100 transition-transform duration-300 hover:scale-105 mr-5">
-            Lumi<span className="text-blue-500">UI</span>
+            SorianiS<span className="text-blue-500">UI</span>
           </h1>
         </Link>
 
